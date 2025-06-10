@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo & Cidade: A Conexão Que Nos Une</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-primaria: #4CAF50; /* Verde vibrante para o campo */
+            --cor-secundaria: #2196F3; /* Azul para a cidade */
+            --cor-neutra-clara: #f9f9f9;
+            --cor-neutra-escura: #333;
+            --cor-texto: #555;
+            --sombra-leve: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--cor-texto);
+            background-color: var(--cor-neutra-clara);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px var(--sombra-leve);
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Seção Sobre */
+        .sobre-secao {
+            background-color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .sobre-secao h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            color: var(--cor-neutra-escura);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .sobre-secao h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--cor-primaria);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .sobre-secao p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--cor-texto);
+        }
+
+        /* Galeria */
+        .galeria-secao {
+            padding: 60px 0;
+            background-color: var(--cor-neutra-clara);
+            text-align: center;
+        }
+
+        .galeria-secao h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            color: var(--cor-neutra-escura);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .galeria-secao h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--cor-secundaria);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .galeria-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px var(--sombra-leve);
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .galeria-item h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4em;
+            color: var(--cor-neutra-escura);
+            margin: 15px 0 10px;
+        }
+
+        .galeria-item p {
+            font-size: 0.95em;
+            padding: 0 15px 20px;
+            color: var(--cor-texto);
+        }
+
+        /* Seção Valores */
+        .valores-secao {
+            background-color: var(--cor-neutra-escura);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .valores-secao h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .valores-secao h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: white;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .valores-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .valor-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            flex: 1 1 300px;
+            max-width: 350px;
+            box-shadow: 0 4px 8px var(--sombra-leve);
+            transition: background-color 0.3s ease;
+        }
+
+        .valor-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .valor-item h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .valor-item p {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-neutra-escura);
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .sobre-secao h2, .galeria-secao h2, .valores-secao h2 {
+                font-size: 2em;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .valor-item {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Campo & Cidade: A Conexão Que Nos Une</h1>
+            <p>Celebrando a rica interdependência e a harmonia entre o ambiente rural e o urbano, construindo pontes para um futuro mais sustentável e conectado.</p>
+        </div>
+    </header>
+
+    <section class="sobre-secao">
+        <div class="container">
+            <h2>Sobre a Conexão</h2>
+            <p>O campo e a cidade, embora distintos, são faces da mesma moeda. O campo nutre a cidade com alimentos frescos e recursos naturais, enquanto a cidade oferece inovação, tecnologia e acesso a mercados para os produtos rurais. Reconhecer e fortalecer essa relação é fundamental para o bem-estar de todos.</p>
+        </div>
+    </section>
+
+    <section class="galeria-secao">
+        <div class="container">
+            <h2>Momentos da Conexão</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="imagem.arando.jpg" alt="Trator arando a terra">
+                    <h3>A Força do Campo</h3>
+                    <p>O trabalho rural essencial que alimenta nossas mesas e mantém nossas cidades vivas.</p>
+                </div>
+                <div class="galeria-item">
+                    <img src="imagem.feira.jpg" alt="Feira livre com produtos frescos">
+                    <h3>Mercado e Consumo</h3>
+                    <p>A feira livre, ponto de encontro onde os frutos do campo chegam diretamente à cidade.</p>
+                </div>
+                <div class="galeria-item">
+                    <img src="edificios modernos na cidade.jpg" alt="Edifícios modernos na cidade">
+                    <h3>Inovação Urbana</h3>
+                    <p>A cidade como centro de desenvolvimento, tecnologia e oportunidades para todos.</p>
+                </div>
+                <div class="galeria-item">
+                    <img src="pessoas visitando uma fazenda.jpg" alt="Pessoas visitando uma fazenda">
+                    <h3>Turismo e Conhecimento</h3>
+                    <p>A experiência de visitar o campo, aprender sobre a origem dos alimentos e a vida rural.</p>
+                </div>
+                <div class="galeria-item">
+                    <img src="rio em uma floresta.jpg" alt="Rio em floresta">
+                    <h3>Recursos Naturais</h3>
+                    <p>O campo como guardião dos recursos hídricos e da biodiversidade que sustenta a todos.</p>
+                </div>
+                <div class="galeria-item">
+                    <img src="Pessoas colaborando em horta urbana.jpg" alt="Pessoas colaborando em horta urbana">
+                    <h3>Hortas Urbanas</h3>
+                    <p>A integração de práticas rurais no ambiente urbano, fortalecendo a comunidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="valores-secao">
+        <div class="container">
+            <h2>Valores da Conexão</h2>
+            <div class="valores-grid">
+                <div class="valor-item">
+                    <h3>Sustentabilidade</h3>
+                    <p>Promover práticas que garantam o equilíbrio ambiental e social para as futuras gerações.</p>
+                </div>
+                <div class="valor-item">
+                    <h3>Respeito</h3>
+                    <p>Valorizar as tradições e o trabalho do campo, e o dinamismo e as inovações da cidade.</p>
+                </div>
+                <div class="valor-item">
+                    <h3>Intercâmbio</h3>
+                    <p>Facilitar a troca de conhecimentos, tecnologias e culturas entre os dois ambientes.</p>
+                </div>
+                <div class="valor-item">
+                    <h3>Prosperidade</h3>
+                    <p>Buscar o desenvolvimento mútuo, gerando oportunidades e bem-estar para todos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Campo & Cidade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
